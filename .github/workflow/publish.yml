@@ -1,0 +1,14 @@
+name: publish
+
+on: [push]
+
+jobs:
+  publish-agriwerker-web-image:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build the agriwerker-web default Docker image
+      run: |
+        echo $CR_PAT | docker login ghcr.io -u info@nathanjansen.nl --password-stdin
