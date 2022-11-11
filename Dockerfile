@@ -35,6 +35,10 @@ RUN apt-get update && apt-get install -y \
     nginx \
     supervisor
 
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+RUN bash -i -c 'nvm install v16.18.1'
+RUN bash -i -c 'nvm use v16.18.1'
+
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install composer
