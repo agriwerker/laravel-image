@@ -1,6 +1,7 @@
 FROM php:8.1-fpm
 
 LABEL maintainer="Uteq (Nathan Jansen)"
+LABEL org.opencontainers.image.source https://github.com/agriwerker/laravel-image
 
 # ARG POSTGRES_VERSION=14
 
