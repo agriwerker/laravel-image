@@ -35,9 +35,21 @@ RUN apt-get update && apt-get install -y \
     nginx \
     supervisor
 
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
-RUN bash -i -c 'nvm install v16.18.1'
-RUN bash -i -c 'nvm use v16.18.1'
+#RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+#RUN bash -i -c 'nvm install v16.18.1'
+#RUN bash -i -c 'nvm use v16.18.1'
+
+RUN mkdir /usr/local/nvm
+ENV NVM_DIR /usr/local/nvm
+ENV NODE_VERSION 16.13.1
+RUN curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash \
+    && . $NVM_DIR/nvm.sh \
+    && nvm install $NODE_VERSION \
+    && nvm alias default $NODE_VERSION \
+    && nvm use default
+
+ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
+ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
