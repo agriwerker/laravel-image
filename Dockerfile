@@ -8,7 +8,7 @@ LABEL org.opencontainers.image.source https://github.com/agriwerker/laravel-imag
 # Example from https://github.com/harshalone/laravel-9-production-ready
 
 # Set working directory
-WORKDIR /var/www
+WORKDIR /var/www/html
 
 # Add docker php ext repo
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
