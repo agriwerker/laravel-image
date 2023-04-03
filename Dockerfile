@@ -15,7 +15,7 @@ ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/do
 
 # Install php extensions
 RUN chmod +x /usr/local/bin/install-php-extensions && sync && \
-    install-php-extensions pdo_mysql zip exif pcntl gd memcached intl pdo_pgsql pgsql redis opcache
+    install-php-extensions pdo_mysql zip exif pcntl gd memcached intl pdo_pgsql pgsql redis opcache bcmath
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
@@ -33,7 +33,8 @@ RUN apt-get update && apt-get install -y \
     lua-zlib-dev \
     libmemcached-dev \
     nginx \
-    supervisor
+    supervisor \
+    php-opcache
 
 #RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
 #RUN bash -i -c 'nvm install v16.18.1'
