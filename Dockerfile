@@ -33,8 +33,7 @@ RUN apt-get update && apt-get install -y \
     lua-zlib-dev \
     libmemcached-dev \
     nginx \
-    supervisor \
-    php-opcache
+    supervisor
 
 #RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
 #RUN bash -i -c 'nvm install v16.18.1'
